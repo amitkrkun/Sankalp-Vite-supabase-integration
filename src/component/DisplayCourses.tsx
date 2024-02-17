@@ -18,7 +18,7 @@ interface DisplayCoursesProps {
   sendDataBack?: (data: boolean) => void;
 }
 
-function DisplayCourses({  courses, sendDataBack }: DisplayCoursesProps) {
+function DisplayCourses({ sendDataBack }: DisplayCoursesProps) {
   const [courseData, setCourseData] = useState<Course[]>([]);
   useEffect(() => {
     async function fetchData() {
@@ -35,8 +35,8 @@ function DisplayCourses({  courses, sendDataBack }: DisplayCoursesProps) {
 
   return (
     <>
-      {courses !== null
-        ? courses.map((item: Course) => {
+      {courseData !== null
+        ? courseData.map((item: Course) => {
             return (
               <Link
                 key={item.course_id}
