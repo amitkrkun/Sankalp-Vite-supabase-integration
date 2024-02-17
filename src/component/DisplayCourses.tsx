@@ -35,8 +35,8 @@ function DisplayCourses({ sendDataBack }: DisplayCoursesProps) {
 
   return (
     <>
-      {courseData !== null
-        ? courseData.map((item: Course) => {
+      {courses !== null
+        ? courses.map((item: Course) => {
             return (
               <Link
                 key={item.course_id}
@@ -79,7 +79,11 @@ function DisplayCourses({ sendDataBack }: DisplayCoursesProps) {
               </Link>
             );
           })
-        : null}
+          : courseData !== null
+  ? courseData.map((item: Course) => {
+      // ... (rest of your code remains the same)
+    })
+  : null}
     </>
   );
 }
