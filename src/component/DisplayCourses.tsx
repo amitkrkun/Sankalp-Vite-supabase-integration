@@ -19,7 +19,8 @@ interface DisplayCoursesProps {
 }
 
 function DisplayCourses({ sendDataBack }: DisplayCoursesProps) {
-  const [courseData, setCourseData] = useState<Course[]>([]);
+  const [courseData, setCourseData] = useState<Course[] | null>(null);
+
   useEffect(() => {
     async function fetchData() {
       const { data, error } = await supabase.from('courses').select('*');
